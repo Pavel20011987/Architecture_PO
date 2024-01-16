@@ -16,14 +16,14 @@ namespace ClinicService.Controllers
             _clientRepository = clientRepository;
         }
 
-        [HttpPost("create")]
+        [HttpPost("create", Name = "ClientCreate")]
         public async Task<ActionResult<ServiceResponse<Client>>> Create([FromBody] Client client)
         {
             var result = await _clientRepository.Create(client);
             return Ok(result);
         }
 
-        [HttpPut("edit")]
+        [HttpPut("edit", Name = "ClientUpdate")]
         public async Task<ActionResult<ServiceResponse<Client>>> Update([FromBody] Client client)
         {
             var clientCheck = await _clientRepository.GetById(client.ClientId);
@@ -34,21 +34,21 @@ namespace ClinicService.Controllers
         }
 
 
-        [HttpDelete("delete")]
+        [HttpDelete("delete", Name = "ClientDelete")]
         public async Task<ActionResult<ServiceResponse<int>>> Delete([FromQuery] int clientId)
         {
             var result = await _clientRepository.Delete(clientId);
             return Ok(result);
         }
 
-        [HttpGet("get-all")]
+        [HttpGet("get-all", Name = "ClientGetAll")]
         public async Task<ActionResult<ServiceResponse<IList<Client>>>> GetAll()
         {
             var result = await _clientRepository.GetAll();
             return Ok(result);
         }
 
-        [HttpGet("get/{clientId}")]
+        [HttpGet("get/{clientId}", Name = "ClientGetById")]
         public async Task<ActionResult<ServiceResponse<Client>>> GetById([FromRoute] int clientId)
         {
             var result = await _clientRepository.GetById(clientId);
