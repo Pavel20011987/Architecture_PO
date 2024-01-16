@@ -1,6 +1,5 @@
 ﻿using ClinicService.Services.ClientServices;
 using ClinicService.Services.PetServices;
-using ClinicService.Shared.Dto;
 using ClinicService.Shared.Entity;
 using ClinicService.Shared;
 using Microsoft.AspNetCore.Mvc;
